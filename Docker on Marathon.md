@@ -1,9 +1,14 @@
 **1. docker 命令**
-> `sudo docker run -d --restart always -p 80:80 -v /usr/compass:/opt/www/compass -v /mnt/datacanvas/aps/share/datasource:/usr/lib/aps/datasource -e front_host=192.168.1.70 -v /mnt/datacanvas/aps/share/avatar:/opt/www/compass/public/2.0.1/avatar --name aps_compasstest registry.aps.datacanvas.com:5000/zetimg/compass:2.0.3`  
+> `sudo docker run -d --restart always -p 80:80 \
+  -v /usr/compass:/opt/www/compass \
+  -v /mnt/datacanvas/aps/share/datasource:/usr/lib/aps/datasource \
+  -e front_host=192.168.1.70 \
+  -v /mnt/datacanvas/aps/share/avatar:/opt/www/compass/public/2.0.1/avatar \
+  --name aps_compasstest registry.aps.datacanvas.com:5000/zetimg/compass:2.0.3`
 > (挂载路径：前面是hostPath，后面是containerPath)
 
 **2. docker on Marathon 的json文件**
-> **BRIDGE MODE**  
+> **BRIDGE MODE**
 > `{
   "id": "/docker-compass",
   "cmd": null,
@@ -48,7 +53,7 @@
   }
 }`
 
-> **HOST MODE**  
+> **HOST MODE**
 > `{
   "id": "docker-compass2",
   "cmd": null,
@@ -92,13 +97,13 @@
   "healthChecks": []
 }`
 
-> **Note:**  
-> `registry.aps.datacanvas.com:5000/zetimg/compass:2.0.3`  
-> Marathon会先从本地查找image,如果本地不存在就会根据image的路径去registry中pull，如果registry不需要认证就可以直接pull; 如果registry需要认证具体步骤见[官网](http://mesosphere.github.io/marathon/docs/native-docker-private-registry.html);
+> **Note:**
+> `registry.aps.datacanvas.com:5000/zetimg/compass:2.0.3`
+> Marathon会先从本地查找image,如果本地不存在就会根据image的路径去registry中pull，如果registry不需要认证就可以直接pull;
+> 如果registry需要认证具体步骤见[官网](http://mesosphere.github.io/marathon/docs/native-docker-private-registry.html);
 
 **3. 使用Marathon的Rest API提交json创建应用**
 > `curl -X POST http://base1.zetyun.com/v2/apps -d @docker-compass.json -H "Content-type: application/json"`
 
 **4. 使用Rest API查看应用信息**
-> `http://mesosphere.github.io/marathon/docs/generated/api.html`  
-> 信息够详细了就不解释了
+> `http://mesosphere.github.io/marathon/docs/generated/api.html`信息够详细了就不解释了
