@@ -5,7 +5,7 @@ header-img: img/post-bg-rwd.jpg
 email: lmklhc@gmail.com
 description: "每个胜利背后都有许多尝试"
 keyword: "扳掘de bigdata 大数据"
-url: "https://banjuede.github.io"          # your host, for absolute URL
+url: "https://bigdata.banjuede.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 
 
