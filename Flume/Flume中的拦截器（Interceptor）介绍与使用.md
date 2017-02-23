@@ -110,7 +110,7 @@ agent_lxw1234.sinks.sink1.hdfs.minBlockReplicas = 1
 agent_lxw1234.sinks.sink1.channel = fileChannel
 ```
 看看最终Sink在HDFS上生成的文件结构：
-![图1](/image/Flume中的拦截器（Interceptor）介绍与使用-1.jpg)
+![图1](assets/Flume中的拦截器（Interceptor）介绍与使用-1.jpg)
 
 ### UUID Interceptor
 
@@ -128,7 +128,7 @@ agent_lxw1234.sinks.sink1.type = logger
 agent_lxw1234.sinks.sink1.channel = fileChannel
 ```
 运行后在日志中查看header信息：
-![图2](/image/Flume中的拦截器（Interceptor）介绍与使用-2.jpg)
+![图2](assets/Flume中的拦截器（Interceptor）介绍与使用-2.jpg)
 
 ### Morphline Interceptor
 
@@ -157,10 +157,10 @@ agent_lxw1234.sinks.sink1.channel = fileChannel
 该配置将events中的数字替换为lxw1234。
 
 原始的events内容为：
-![图3](/image/Flume中的拦截器（Interceptor）介绍与使用-3.jpg)
+![图3](assets/Flume中的拦截器（Interceptor）介绍与使用-3.jpg)
 
 实际的events内容为：
-![图4](/image/Flume中的拦截器（Interceptor）介绍与使用-4.jpg)
+![图4](assets/Flume中的拦截器（Interceptor）介绍与使用-4.jpg)
 
 ### Regex Filtering Interceptor
 
@@ -184,10 +184,10 @@ agent_lxw1234.sinks.sink1.channel = fileChannel
 如果excludeEvents设为true，则表示过滤掉以lxw1234开头的events。
 
 原始events内容为：
-![图5](/image/Flume中的拦截器（Interceptor）介绍与使用-5.jpg)
+![图5](assets/Flume中的拦截器（Interceptor）介绍与使用-5.jpg)
 
 拦截后的events内容为：
-![图6](/image/Flume中的拦截器（Interceptor）介绍与使用-6.jpg)
+![图6](assets/Flume中的拦截器（Interceptor）介绍与使用-6.jpg)
 
 ### Regex Extractor Interceptor
 
@@ -213,10 +213,10 @@ agent_lxw1234.sinks.sink1.channel = fileChannel
 该配置从原始events中抽取出cookieid和ip，加入到events header中。
 
 原始的events内容为：
-![图7](/image/Flume中的拦截器（Interceptor）介绍与使用-7.jpg)
+![图7](assets/Flume中的拦截器（Interceptor）介绍与使用-7.jpg)
 
 events header中的内容为：
-![图8](/image/Flume中的拦截器（Interceptor）介绍与使用-8.jpg)
+![图8](assets/Flume中的拦截器（Interceptor）介绍与使用-8.jpg)
 
 
 Flume的拦截器可以配合Sink完成许多业务场景需要的功能，比如：按照时间及主机生成目标文件目录及文件名；配合Kafka Sink完成多分区的写入等等。

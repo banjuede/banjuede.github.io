@@ -62,19 +62,19 @@ flume-ng agent -n agent_lxw1234 –conf . -f agent_lxw1234_conf.properties
 
 ### 运行结果
 启动之后，在sink所指的/tmp/flumefiles目录下，生成了一个大小为0的目标文件，命令为时间戳-1，如：
-![图1](/image/flume-taildirsource-1.jpg)
+![图1](assets/flume-taildirsource-1.jpg)
 
 接着往监控的目录中生成log_20151015_10.log的文件：
-![图2](/image/flume-taildirsource-2.jpg)
+![图2](assets/flume-taildirsource-2.jpg)
 
 此时，在上面tail –f 目标文件的控制台中，已经可以看到写入的内容了：
-![图3](/image/flume-taildirsource-3.jpg)
+![图3](assets/flume-taildirsource-3.jpg)
 
 再模拟生成一个新的文件（log_20151015_11.log）：
-![图4](/image/flume-taildirsource-4.jpg)
+![图4](assets/flume-taildirsource-4.jpg)
 
 同样，目标文件中也正常写入：
-![图5](/image/flume-taildirsource-5.jpg)
+![图5](assets/flume-taildirsource-5.jpg)
 
 如果在监控的目录/tmp/lxw1234-flume/中，产生和所配置的文件名正则表达式不匹配的文件，则不会被tail。
 
@@ -82,7 +82,7 @@ flume-ng agent -n agent_lxw1234 –conf . -f agent_lxw1234_conf.properties
 
 ### 检查点文件positionFile
 看一下该文件的内容：
-![图6](/image/flume-taildirsource-6.jpg)
+![图6](assets/flume-taildirsource-6.jpg)
 
 该文件中记录了所监控的每个文件的当前位置，如图中红圈圈出的pos的值，因为两个文件都已经读到了最后，因此每个pos的值就是该文件的大小。
 
