@@ -51,4 +51,6 @@ agent1.sources.src1.interceptors=i1
 agent1.sources.src1.interceptors.i1.type=timestamp
 agent1.sources.src1.spoolDir=/mnt/log_monitor
 agent1.sources.src1.type=spooldir
+agent1.sources.src1.ignorePattern = ^(.)*\\.tmp$
+agent1.sources.src1.deserializer.maxLineLength = 4096
 ```

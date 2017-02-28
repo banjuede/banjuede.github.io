@@ -40,7 +40,7 @@ agent1.sources = src1
 agent1.sinks = sink_hdfs
 ```
 
-#### 1.3 采集文件到HDFS
+#### 3. 采集文件到HDFS
 ```
 agent1.sources = source1
 agent1.sinks = sink1
@@ -79,5 +79,7 @@ agent1.sources.source1.channels = channel1
 agent1.sinks.sink1.channel = channel1
 ```
 
-flume-ng agent -c /etc/flume-ng/conf -f /etc/flume-ng/conf/f2.conf -Dflume.root.logger=DEBUG,console -n agent-1
-
+### 4. 启动agent
+```
+flume-ng agent -name agent1 -c conf -f spoolDir2hdfs.conf
+```
