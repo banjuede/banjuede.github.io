@@ -123,7 +123,9 @@ public class MyConsumer {
 	  }
 }
 ```
+
 运行结果
-![图1](/image/KafkaSink-1.jpg)
+
+![图1](assets/KafkaSink-1.jpg)
 
 如图中红框所示，实际events所在的分区和期望分区（testPartition）的结果完全一致，由此可见，所有的events已经按照既定的规则写入Kafka分区中。

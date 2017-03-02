@@ -4,7 +4,7 @@
 
 我将TaildirSource的相关源码下载下来（需要做简单修改），然后集成到Flume1.6中，满足了上面提到的需求，获得了良好的效果。
 
-源码下载地址： [点击下载](/download/flume-taildirfile-source.zip)
+源码下载地址： [点击下载](assets/flume-taildirfile-source.zip)
 
 将源码单独编译，打成jar包，上传到$FLUME_HOME/lib/目录下。
 

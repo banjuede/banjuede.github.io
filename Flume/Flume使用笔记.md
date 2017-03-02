@@ -81,5 +81,5 @@ agent1.sinks.sink1.channel = channel1
 
 ### 4. 启动agent
 ```
-flume-ng agent -name agent1 -c conf -f spoolDir2hdfs.conf
+flume-ng agent -name agent1 -c . -f spoolDir2hdfs.conf
 ```

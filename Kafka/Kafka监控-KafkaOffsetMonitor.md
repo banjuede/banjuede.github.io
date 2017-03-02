@@ -30,4 +30,5 @@ com.quantifind.kafka.offsetapp.OffsetGetterWeb \
 |dbName|where to store the history (default'offsetapp')|
 
 这样将会在8080端口上访问该监控：
+
 ![图1](assets/Kafka监控-KafkaOffsetMonitor-1.jpg)
