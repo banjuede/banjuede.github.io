@@ -18,3 +18,11 @@ elasticsearch.url: http://192.168.1.87:9200/
 ```
 ./bin/kibana
 ```
+
+### 修改Loading Kibana图标
+```
+vi kibana-5.1.1-linux-x86_64/src/ui/views/ui_app.jade
+
+找到117行，修改 Loading Kibana 为 Loading DataCanvas
+```
+87(在spark用户下)上有改好的`Kibana UI`，在其他机器上安装完后可以直接替换`src`目录

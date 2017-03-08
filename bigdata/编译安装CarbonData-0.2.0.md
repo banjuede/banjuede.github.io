@@ -1,7 +1,7 @@
 自从CarbonData 0.2.0之后解决了必须依赖于Apache Thrift的问题，这样就会方便很多，如果你需要修改Thrift的文件配置则还是需要安装Apache Thrift的，具体安装过程见[Apache Thrift 0.9.3 安装文档](http://www.jianshu.com/p/08c5d24656ae)
 
 但在编译安装之前还是要做一些必要条件的：
-````
+```
 Unix-like environment (Linux, Mac OS X)
 Git
 Apache Maven (Recommend version 3.3 or later) [安装文档](https://maven.apache.org/install.html)
