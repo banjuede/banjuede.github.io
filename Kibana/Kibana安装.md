@@ -19,9 +19,14 @@ elasticsearch.url: http://192.168.1.87:9200/
 ./bin/kibana
 ```
 
+### 修改左上角Kibana图标
+```
+kibana/optimize/bundles/src/ui/public/images/kibana.svg
+```
+
 ### 修改Loading Kibana图标
 ```
-vi kibana-5.1.1-linux-x86_64/src/ui/views/ui_app.jade
+vi kibana/src/ui/views/ui_app.jade
 
 找到117行，修改 Loading Kibana 为 Loading DataCanvas
 ```

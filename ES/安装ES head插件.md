@@ -1,26 +1,15 @@
-ES 5.X 和之前的版本不太一样，elasticsearch-head 做为一个单独的服务，所以就没有了 yum install
-
-## 安装前
-
-> 以下操作需要在普通用户（例如：spark）下操作，假如把HEAD插件安装在了`192.168.1.87`这个节点上
-
-由于elasticsearch-head 需要nodejs，所以我们需要先安装 `nodejs` 以及 `npm`
-
-```
-$ sudo curl -sL -o /etc/yum.repos.d/khara-nodejs.repo https://copr.fedoraproject.org/coprs/khara/nodejs/repo/epel-7/khara-nodejs-epel-7.repo
-$ sudo yum install -y nodejs nodejs-npm
-```
+ES 5.X 和之前的版本不太一样，elasticsearch-head 做为一个单独的服务，所以就没有了 plugin install
 
 ## 安装
 
 ```
 $ pwd
-/home/spark
+/home/es
 $ git clone git://github.com/mobz/elasticsearch-head.git
 $ cd elasticsearch-head
-$ npm install
 ```
-* **配置**
+
+### 1. 配置
 
 ```
 $ vi _site/app.js
@@ -30,14 +19,27 @@ $ vi _site/app.js
 this.base_uri = this.config.base_uri || this.prefs.get("app-base_uri") || "http://192.168.1.87:9200";
 ```
 
-## 启动
+### 2. 配置并启动nginx
 
+`vi /usr/local/nginx/cong/nginx.conf`
 ```
-$ ./node_modules/grunt/bin/grunt server &
+# 去掉文件第一行的注释
+user  es;
+
+server {
+         listen       9100;
+         server_name  es-head;
+         root /home/es/elasticsearch-head;
+    }
 ```
+
+**启动nginx**
+```
+/usr/local/nginx/sbin/nginx -s stop/reload
+```
+
 **启动成功，可以打开 `http://192.168.1.87:9100/`**
 
 ![](assets/es-head 启动.png)
-
 
 到此 elasticsearch-head 插件安装完毕
