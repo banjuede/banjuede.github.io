@@ -9,5 +9,5 @@
 selection.remove_low_information_features(feature_matrix)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk5ODk0NzQzXX0=
+eyJoaXN0b3J5IjpbLTMyOTg1NTU1LDg5OTg5NDc0M119
 -->
