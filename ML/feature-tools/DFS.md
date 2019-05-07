@@ -1,9 +1,7 @@
----
+# 使用DFS对单表进行特征衍生
 
-
----
-
-<pre><code>from sklearn.datasets import load_iris  
+```python
+from sklearn.datasets import load_iris  
 import pandas as pd  
 import featuretools as ft  
 from featuretools import variable_types  
@@ -17,7 +15,7 @@ from featuretools import selection
   
 df = pd.read_csv("C:\\Users\\lumin\\Desktop\\bank_data.csv")  
   
-es = ft.EntitySet(id='bank_data')  
+es = ft.EntitySet(id='bank_data')
 variable_type = {  
     "age": variable_types.Numeric,  
     "day": variable_types.Numeric,  
@@ -56,5 +54,4 @@ print(feature_defs)
 # print(feature_matrix.head(2))  
   
 selection.remove_low_information_features()
-</code></pre>
-
+```
