@@ -7,6 +7,8 @@
 import pandas as pd  
 import featuretools as ft  
 from featuretools import variable_types  
+from featuretools import selection  
+  
   
 # iris = load_iris()  
 # df = pd.DataFrame(iris.data, columns=iris.feature_names)  
@@ -16,25 +18,24 @@ from featuretools import variable_types
 df = pd.read_csv("C:\\Users\\lumin\\Desktop\\bank_data.csv")  
   
 es = ft.EntitySet(id='bank_data')  
-variable_types = {  
+variable_type = {  
     "age": variable_types.Numeric,  
     "day": variable_types.Numeric,  
-    "job": variable_types.Categorical,  
+    "job": variable_types.Id,  
     "marital": variable_types.Categorical,  
-    "housing": variable_types.Categorical,  
-    "loan": variable_types.Categorical,  
+    "housing": variable_types.Boolean,  
+    "loan": variable_types.Boolean,  
     "time1": variable_types.Datetime,  
-    "time2": variable_types.Datetime,  
-    "y": variable_types.Categorical  
+    "time2": variable_types.Datetime  
 }  
-es.entity_from_dataframe(entity_id='data', dataframe=df, variable_types=variable_types, make_index=True, index='index')  
+es.entity_from_dataframe(entity_id='data', dataframe=df, variable_types=variable_type, make_index=True, index='index')  
 print(es.entity_dict)  
 # DFS  
-feature_matrix, feature_defs = ft.dfs(entityset=es, target_entity="data", agg_primitives=['min'],  
-                                      ignore_variables={"data": ['job']}, return_variable_types="all",  
-                                      trans_primitives=[ft.primitives.SubtractNumeric(False), 'subtract_numeric_scalar'],  
-                                      max_depth=2, features_only=False, max_features=-1)  
-ft.primitives.SubtractNumeric  
+feature_matrix, feature_defs = ft.dfs(entityset=es, target_entity="data", agg_primitives=['mode'],  
+                                      ignore_variables={"data": []}, return_variable_types="all",  
+                                      trans_primitives=[ft.primitives.SubtractNumeric(False), "diff"],  
+                                      max_depth=1, features_only=False, max_features=-1)  
+ft.primitives.AggregationPrimitive  
 print(feature_matrix.shape)  
 feature_matrix.to_csv("result.csv")  
 print(feature_matrix.columns)  
@@ -52,6 +53,8 @@ print(feature_defs)
 #  
 # feature_matrix.to_csv("feature_matrix.csv")  
 # print(feature_matrix.shape)  
-# print(feature_matrix.head(2))
+# print(feature_matrix.head(2))  
+  
+selection.remove_low_information_features()
 </code></pre>
 
